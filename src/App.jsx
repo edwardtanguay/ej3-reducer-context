@@ -31,30 +31,51 @@ function App() {
                         <fieldset className="germanNoun" key={i}>
                             <legend>ID: {item.id}</legend>
 
-                            <FormRow item={item} title="Article" variable="article" />
-                            <FormRow item={item} title="Singular" variable="singular" />
-                            <FormRow item={item} title="Plural" variable="plural" />
-                            
+                            <FormRow
+                                item={item}
+                                title="Article"
+                                variable="article"
+                            />
+                            <FormRow
+                                item={item}
+                                title="Singular"
+                                variable="singular"
+                            />
+                            <FormRow
+                                item={item}
+                                title="Plural"
+                                variable="plural"
+                            />
+
                             <div className="buttonRow">
-                                <div className="message">
-                                    {item.message}
-                                </div>
+                                <div className="message">{item.message}</div>
                                 <div className="buttonArea">
-                                    <button
-                                        onClick={() =>
-                                            dispatch({
-                                                type: 'toggleItemEditing',
-                                                payload: {
-                                                    itemType: 'germanNouns',
-                                                    id: item.id
+                            {item.isEditing && (
+                              <>
+                             <button>Clear</button> 
+                             <button>Save</button> 
+                              </>
+                            )}
+                                    {!item.isEditing && (
+                                        <>
+                                            <button
+                                                onClick={() =>
+                                                    dispatch({
+                                                        type: 'toggleItemEditing',
+                                                        payload: {
+                                                            itemType:
+                                                                'germanNouns',
+                                                            id: item.id
+                                                        }
+                                                    })
                                                 }
-                                            })
-                                        }
-                                    >
-                                        Edit
-                                    </button>
-                                    <button>Delete</button>
-                                    <button>Add</button>
+                                            >
+                                                Edit
+                                            </button>
+                                            <button>Delete</button>
+                                            <button>Add</button>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </fieldset>
