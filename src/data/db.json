@@ -17,6 +17,12 @@
       "article": "der",
       "singular": "Workshop",
       "plural": "die Workshops"
+    },
+    {
+      "article": "das",
+      "singular": "Niveau",
+      "plural": "die Niveaus",
+      "id": 4
     }
   ]
 }

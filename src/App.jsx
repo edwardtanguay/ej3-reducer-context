@@ -20,9 +20,19 @@ function App() {
                     +
                 </button>
             </div>
-        
-        <h2>German Nouns</h2>
-        <p>There are {state.germanNouns.length} German nouns.</p>
+
+            <h2>German Nouns</h2>
+            <p>There are {state.germanNouns.length} German nouns.</p>
+
+            <div className="germanNounArea">
+                {state.germanNouns.map((item, i) => {
+                    return (
+                        <div className="germanNoun" key={i}>
+                            {item.singular}
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 }

@@ -11,9 +11,9 @@ POST {{url}}/germanNouns
 content-type: application/json
 
 {
-    "article": "nnn",
-    "singular": "nnn",
-    "plural": "nnn"
+    "article": "das",
+    "singular": "Niveau",
+    "plural": "die Niveaus"
 }
 
 ### DELETE ITEM
