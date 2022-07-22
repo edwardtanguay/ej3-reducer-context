@@ -1,3 +1,4 @@
-- give each item a isEditing property
-	- when click Edit button, then toggle isEditing
-	- if .isEditing show "EDITING"
+- x give each item a isEditing property
+	- x when click Edit button, then toggle isEditing
+	- x if .isEditing show "EDITING"
+- .. same for singular and plural 

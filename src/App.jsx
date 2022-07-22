@@ -1,6 +1,7 @@
 import './App.scss';
 import { useContext } from 'react';
 import { AppContext } from './AppContext';
+import { FormRow } from './components/FormRow';
 
 function App() {
     const { state, dispatch } = useContext(AppContext);
@@ -30,40 +31,10 @@ function App() {
                         <fieldset className="germanNoun" key={i}>
                             <legend>ID: {item.id}</legend>
 
-                            <div className="row">
-                                <label htmlFor="article">Article</label>
-                                {item.isEditing ? (
-                                    <div className="value">
-                                        <input
-                                            type="text"
-                                            value={item.article}
-                                            onChange={(e) =>
-                                                dispatch({
-                                                    type: 'handleItemFieldChange',
-                                                    payload: {
-                                                        itemType: 'germanNouns',
-                                                        id: item.id,
-                                                        field: 'article',
-                                                        value: e.target.value
-                                                    }
-                                                })
-                                            }
-                                        />
-                                    </div>
-                                ) : (
-                                    <div className="value">{item.article}</div>
-                                )}
-                            </div>
-
-                            <div className="row">
-                                <label htmlFor="singular">Singular</label>
-                                <div className="value">{item.singular}</div>
-                            </div>
-
-                            <div className="row">
-                                <label htmlFor="plural">Plural</label>
-                                <div className="value">{item.plural}</div>
-                            </div>
+                            <FormRow item={item} title="Article" variable="article" />
+                            <FormRow item={item} title="Singular" variable="singular" />
+                            <FormRow item={item} title="Plural" variable="plural" />
+                            
                             <div className="buttonRow">
                                 <div className="message">
                                     {item.message}
