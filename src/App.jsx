@@ -54,7 +54,7 @@ function App() {
                                     )}
                                 </div>
                                 <div className="buttonArea">
-                                    <button>Edit</button>
+                                    <button onClick={() => dispatch({type: 'toggleItemEditing', payload: {itemType: 'germanNouns', id: item.id}})}>Edit</button>
                                     <button>Delete</button>
                                     <button>Add</button>
                                 </div>

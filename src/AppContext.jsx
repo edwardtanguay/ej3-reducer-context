@@ -19,8 +19,15 @@ const reducer = (state, action) => {
         case 'decreaseCount':
             _state.count--;
             break;
-        case 'loadGermanNouns':
-            _state.germanNouns = action.payload;
+		case 'loadGermanNouns':
+			_state.germanNouns = action.payload;
+			break;
+		case 'toggleItemEditing':
+			const itemType = action.payload.itemType;
+			const id = action.payload.id;
+			const item = _state[itemType].find(m => m.id === id);
+			item.isEditing = !item.isEditing;
+			break;
     }
     return _state;
 };
