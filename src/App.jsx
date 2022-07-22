@@ -38,11 +38,6 @@ function App() {
                             <div className="buttonRow">
                                 <div className="message">
                                     {item.message}
-                                    {item.isEditing ? (
-                                        <div>EDITING</div>
-                                    ) : (
-                                        <div>not editing</div>
-                                    )}
                                 </div>
                                 <div className="buttonArea">
                                     <button
