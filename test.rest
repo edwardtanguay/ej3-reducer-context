@@ -1,0 +1,20 @@
+@url = http://localhost:4555
+
+### GET ALL ITEMS
+GET {{url}}/germanNouns
+
+### GET ITEM
+GET {{url}}/germanNouns/2
+
+### ADD ITEM
+POST {{url}}/germanNouns
+content-type: application/json
+
+{
+    "article": "nnn",
+    "singular": "nnn",
+    "plural": "nnn"
+}
+
+### DELETE ITEM
+DELETE {{url}}/germanNouns/4
