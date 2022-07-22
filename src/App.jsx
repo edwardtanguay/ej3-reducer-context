@@ -4,7 +4,7 @@ import { AppContext } from './AppContext';
 import { FormRow } from './components/FormRow';
 
 function App() {
-    const { state, dispatch } = useContext(AppContext);
+    const { state, dispatch,actionManager } = useContext(AppContext);
 
     return (
         <div className="App">
@@ -50,12 +50,43 @@ function App() {
                             <div className="buttonRow">
                                 <div className="message">{item.message}</div>
                                 <div className="buttonArea">
-                            {item.isEditing && (
-                              <>
-                             <button>Clear</button> 
-                             <button>Save</button> 
-                              </>
-                            )}
+                                    {item.isEditing && (
+                                        <>
+                                            <button
+                                                onClick={() =>
+                                                    dispatch({
+                                                        type: 'clearItemEditing',
+                                                        payload: {
+                                                            itemType:
+                                                                'germanNouns',
+                                                            id: item.id
+                                                        }
+                                                    })
+                                                }
+                                            >
+                                                Clear
+                                            </button>
+                                            <button
+                                                onClick={() =>
+                                                    actionManager({
+                                                        type: 'saveItemEditing',
+                                                        payload: {
+                                                            itemType:
+                                                                'germanNouns',
+                                                          id: item.id,
+                                                          item: {
+                                                             article: item.article,
+                                                             singular: item.singular,
+                                                             plural: item.plural,
+                                                           } 
+                                                        }
+                                                    })
+                                                }
+                                            >
+                                                Save
+                                            </button>
+                                        </>
+                                    )}
                                     {!item.isEditing && (
                                         <>
                                             <button
