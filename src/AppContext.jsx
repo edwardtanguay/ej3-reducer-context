@@ -12,6 +12,13 @@ const initialState = {
 
 const reducer = (state, action) => {
     const _state = { ...state };
+	   
+	let itemType = null;
+	let id = null;
+	let item = null;
+	let field = null;
+	let value = null;
+
     switch (action.type) {
         case 'increaseCount':
             _state.count++;
@@ -23,10 +30,18 @@ const reducer = (state, action) => {
 			_state.germanNouns = action.payload;
 			break;
 		case 'toggleItemEditing':
-			const itemType = action.payload.itemType;
-			const id = action.payload.id;
-			const item = _state[itemType].find(m => m.id === id);
+			itemType = action.payload.itemType;
+			id = action.payload.id;
+			item = _state[itemType].find(m => m.id === id);
 			item.isEditing = !item.isEditing;
+			break;
+		case 'handleItemFieldChange':
+			itemType = action.payload.itemType;
+			id = action.payload.id;
+			field = action.payload.field;
+			value = action.payload.value;
+			item = _state[itemType].find(m => m.id === id);
+			item[field] = value;
 			break;
     }
     return _state;

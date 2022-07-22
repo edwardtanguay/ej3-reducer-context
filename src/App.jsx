@@ -32,7 +32,27 @@ function App() {
 
                             <div className="row">
                                 <label htmlFor="article">Article</label>
-                                <div className="value">{item.article}</div>
+                                {item.isEditing ? (
+                                    <div className="value">
+                                        <input
+                                            type="text"
+                                            value={item.article}
+                                            onChange={(e) =>
+                                                dispatch({
+                                                    type: 'handleItemFieldChange',
+                                                    payload: {
+                                                        itemType: 'germanNouns',
+                                                        id: item.id,
+                                                        field: 'article',
+                                                        value: e.target.value
+                                                    }
+                                                })
+                                            }
+                                        />
+                                    </div>
+                                ) : (
+                                    <div className="value">{item.article}</div>
+                                )}
                             </div>
 
                             <div className="row">
@@ -54,7 +74,19 @@ function App() {
                                     )}
                                 </div>
                                 <div className="buttonArea">
-                                    <button onClick={() => dispatch({type: 'toggleItemEditing', payload: {itemType: 'germanNouns', id: item.id}})}>Edit</button>
+                                    <button
+                                        onClick={() =>
+                                            dispatch({
+                                                type: 'toggleItemEditing',
+                                                payload: {
+                                                    itemType: 'germanNouns',
+                                                    id: item.id
+                                                }
+                                            })
+                                        }
+                                    >
+                                        Edit
+                                    </button>
                                     <button>Delete</button>
                                     <button>Add</button>
                                 </div>
