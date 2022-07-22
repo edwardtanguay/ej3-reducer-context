@@ -27,9 +27,24 @@ function App() {
             <div className="germanNounArea">
                 {state.germanNouns.map((item, i) => {
                     return (
-                        <div className="germanNoun" key={i}>
-                            {item.singular}
-                        </div>
+                        <fieldset className="germanNoun" key={i}>
+                            <legend>ID: {item.id}</legend>
+
+                            <div className="row">
+                                <label htmlFor="article">Article</label>
+                                <div className="value">{item.article}</div>
+                            </div>
+
+                            <div className="row">
+                                <label htmlFor="singular">Singular</label>
+                                <div className="value">{item.singular}</div>
+                            </div>
+
+                            <div className="row">
+                                <label htmlFor="plural">Plural</label>
+                                <div className="value">{item.plural}</div>
+                            </div>
+                        </fieldset>
                     );
                 })}
             </div>
