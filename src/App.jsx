@@ -1,11 +1,15 @@
 import './App.scss'
+import { useContext } from 'react';
+import { AppContext } from './AppContext';
 
 function App() {
+  const { count } = useContext(AppContext);
+
   return (
     <div className="App">
-    <h1>useContext / useRecuder Site</h1>
+    <h1>useContext / useReducer Site</h1>
 
-      <p>kdjf</p>
+      <p>Count = { count }</p>
     </div>
   )
 }
