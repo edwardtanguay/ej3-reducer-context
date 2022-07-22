@@ -33,6 +33,9 @@ export const AppProvider = ({ children }) => {
             const _germanNouns = (
                 await axios.get(`${api_base_url}/germanNouns`)
             ).data;
+			_germanNouns.forEach(item => {
+				item.isEditing = false;
+			})
             dispatch({ type: 'loadGermanNouns', payload: _germanNouns });
         })();
     }, []);

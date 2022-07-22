@@ -45,7 +45,14 @@ function App() {
                                 <div className="value">{item.plural}</div>
                             </div>
                             <div className="buttonRow">
-                                <div className="message">{item.message}</div>
+                                <div className="message">
+                                    {item.message}
+                                    {item.isEditing ? (
+                                        <div>EDITING</div>
+                                    ) : (
+                                        <div>not editing</div>
+                                    )}
+                                </div>
                                 <div className="buttonArea">
                                     <button>Edit</button>
                                     <button>Delete</button>

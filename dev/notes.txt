@@ -1,0 +1,3 @@
+- give each item a isEditing property
+	- when click Edit button, then toggle isEditing
+	- if .isEditing show "EDITING"
