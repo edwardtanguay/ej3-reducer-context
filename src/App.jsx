@@ -44,6 +44,14 @@ function App() {
                                 <label htmlFor="plural">Plural</label>
                                 <div className="value">{item.plural}</div>
                             </div>
+                            <div className="buttonRow">
+                                <div className="message">{item.message}</div>
+                                <div className="buttonArea">
+                                    <button>Edit</button>
+                                    <button>Delete</button>
+                                    <button>Add</button>
+                                </div>
+                            </div>
                         </fieldset>
                     );
                 })}
